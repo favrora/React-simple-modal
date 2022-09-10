@@ -5,6 +5,10 @@
 @import './Modal';
 
 // define or include your other css below
+* {
+  box-sizing: border-box;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -40,7 +44,7 @@ input {
   font-size: .875rem;
   position: relative;
   transition: all 200ms ease;
-  width: calc(100% - 2rem);
+  width: 100%;
 
   &:hover, &:focus {
     border-color: #b2b2b2;
@@ -68,4 +72,15 @@ input {
   &:hover {
     background: $light-primary;
   }
+}
+
+.error {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-top: 0.3rem;
+}
+
+.show {
+  display: block!important;
 }

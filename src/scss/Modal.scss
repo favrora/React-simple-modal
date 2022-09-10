@@ -9,11 +9,8 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  padding: 0 0.8rem;
   background-color: rgba(0,0,0,0.4);
-
-  &.show {
-    display: block;
-  }
 }
 
 .modal-content {
@@ -21,7 +18,8 @@
   margin: 6rem auto 0;
   padding: 20px;
   border: 1px solid #888;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .closeContainer {

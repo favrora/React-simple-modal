@@ -2,9 +2,24 @@ import React, { useState } from 'react'
 import './scss/App.scss';
 import Modal from './Modal';
 
-
 function App() {
-  const [modal, showModal] = useState(false);
+  const [modal, showModal] = useState(false),
+    [firstName, setFirstName] = useState(""),
+    [lastName, setLastName] = useState(""),
+    [formValidation, checkValidation] = useState(false);
+
+  const firstNameChange = event => {
+    setFirstName(event.target.value);
+  };
+
+  const lastNameChange = event => {
+    setLastName(event.target.value);
+  };
+
+  const sendForm = () => {
+    if (firstName.length > 0 && lastName.length > 0) showModal(true);
+    if (!formValidation) checkValidation(true);
+  };
 
   return (
     <div className="App">
@@ -12,19 +27,22 @@ function App() {
         <h1>Form with modal</h1>
 
         <div>
-          <input className="firstName" placeholder="First name"></input>
+          <input className="firstName" placeholder="First name" onChange={firstNameChange}></input>
+          <span className={`error ${formValidation && firstName.length === 0 ? "show" : ""}`}>Please fill input</span>
         </div>
 
         <div>
-          <input className="lastName" placeholder="Last Name"></input>
+          <input className="lastName" placeholder="Last Name" onChange={lastNameChange}></input>
+          <span className={`error ${formValidation && lastName.length === 0 ? "show" : ""}`}>Please fill input</span>
         </div>
 
         <div>
-          <button className="submitForm btn" variant="primary" onClick={() => showModal(true)}>Send</button>
+          <button className="btn" onClick={sendForm}>Send</button>
         </div>
       </div>
 
-      <Modal modal={modal} showModal={showModal}></Modal>
+      <Modal modal={modal} showModal={showModal}
+        firstName={firstName} lastName={lastName}></Modal>
     </div>
   );
 }
