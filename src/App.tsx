@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
-import './scss/App.scss';
+import { useState } from 'react'
 import Modal from './Modal';
 
 function App() {
-  const [modal, showModal] = useState(false),
-    [firstName, setFirstName] = useState(""),
-    [lastName, setLastName] = useState(""),
-    [formValidation, checkValidation] = useState(false);
+  const [modal, showModal] = useState<boolean>(false),
+    [firstName, setFirstName] = useState<any>(""),
+    [lastName, setLastName] = useState<any>(""),
+    [formValidation, checkValidation] = useState<boolean>(false);
 
   const firstNameChange = event => {
     setFirstName(event.target.value);
@@ -47,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

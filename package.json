@@ -1,28 +1,8 @@
 {
-  "name": "test-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "name": "test-task",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "David Voskanyan",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,8 +15,57 @@
       "last 1 safari version"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laststance/react-typescript-todomvc-2022"
+  },
+  "bugs": {
+    "url": "https://github.com/laststance/react-typescript-todomvc-2022/issues"
+  },
+  "homepage": "https://github.com/laststance/react-typescript-todomvc-2022",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
+    "recoil": "^0.7.5",
+    "styled-components": "^5.3.5"
+  },
   "devDependencies": {
-    "node-sass": "^7.0.3",
-    "sass": "^1.54.9"
+    "@percy/cli": "^1.0.0-beta.64",
+    "@percy/cypress": "^3.1.2",
+    "@swc/core": "^1.2.249",
+    "@swc/jest": "^0.2.22",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^18.7.16",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^2.1.0",
+    "cypress": "10.7.0",
+    "eslint-config-typescript-react-pro": "^1.4.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.54.9",
+    "serve": "^14.0.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.1.0"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "build",
+    "test": "jest",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf yarn.lock package-lock.json node_modules build",
+    "cypress:run": "cypress run",
+    "cypress:headed": "cypress run ---headed",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:chrome:headless": "cypress run --browser chrome --headless",
+    "cypress:open": "cypress open",
+    "cypress:percy": "percy exec -- cypress run"
   }
 }

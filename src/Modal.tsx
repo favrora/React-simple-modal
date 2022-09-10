@@ -1,5 +1,6 @@
 
 function Modal({ modal, showModal, firstName, lastName }) {
+
   return (
     <div className={`Modal ${modal ? "show" : ""}`}>
 
