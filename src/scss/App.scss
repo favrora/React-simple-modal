@@ -1,0 +1,71 @@
+// App.scss
+
+// include customized bootstrap
+@import './config';
+@import './Modal';
+
+// define or include your other css below
+.App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
+}
+
+.form {
+  height: fit-content;
+  padding: 1rem;
+  width: 400px;
+  margin-top: 5rem;
+  box-shadow: 0 0 9px #00000021;
+
+  div {
+    margin-bottom: 0.8rem;
+  }
+}
+
+h1 {
+  font-size: 20px;
+  margin-top: 0;
+  color: #4d4d4d;
+}
+
+
+// input style
+input {
+  border: 1px solid #e6e6e6;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: #747474;
+  font-size: .875rem;
+  position: relative;
+  transition: all 200ms ease;
+  width: calc(100% - 2rem);
+
+  &:hover, &:focus {
+    border-color: #b2b2b2;
+    outline: 0;
+  }
+
+  &::placeholder {
+    color: #b2b2b2;
+  }
+}
+
+// buttom style
+.btn {
+  background: $primary-color;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 500;
+  transition: 350ms;
+  border: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 7px #00000045;
+  width: 100%;
+
+  &:hover {
+    background: $light-primary;
+  }
+}
