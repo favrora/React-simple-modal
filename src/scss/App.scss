@@ -1,10 +1,10 @@
 // App.scss
 
-// include customized bootstrap
+// import config and component
 @import './config';
 @import './Modal';
 
-// define or include your other css below
+// GLobal Styles
 * {
   box-sizing: border-box;
 }
@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   height: 100vh;
-  font-family: sans-serif, Arial, Helvetica, sans-serif;
+  font-family: sans-serif, Arial, Helvetica;
 }
 
 .form {
@@ -33,7 +33,6 @@ h1 {
   margin-top: 0;
   color: #4d4d4d;
 }
-
 
 // input style
 input {
@@ -56,7 +55,7 @@ input {
   }
 }
 
-// buttom style
+// button style
 .btn {
   background: $primary-color;
   border-radius: 6px;

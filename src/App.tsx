@@ -1,22 +1,16 @@
 import { useState } from 'react'
+import { observer } from "mobx-react-lite";
+import { useStore } from "./store";
 import Modal from './Modal';
 
-function App() {
+const App = observer(() => {
   const [modal, showModal] = useState<boolean>(false),
-    [firstName, setFirstName] = useState<any>(""),
-    [lastName, setLastName] = useState<any>(""),
     [formValidation, checkValidation] = useState<boolean>(false);
 
-  const firstNameChange = event => {
-    setFirstName(event.target.value);
-  };
-
-  const lastNameChange = event => {
-    setLastName(event.target.value);
-  };
+  const { firstName, setFirstName, lastName, setLastName } = useStore();
 
   const sendForm = () => {
-    if (firstName.length > 0 && lastName.length > 0) showModal(true);
+    if (firstName && lastName) showModal(true);
     if (!formValidation) checkValidation(true);
   };
 
@@ -26,13 +20,23 @@ function App() {
         <h1>Form with modal</h1>
 
         <div>
-          <input className="firstName" placeholder="First name" onChange={firstNameChange}></input>
-          <span className={`error ${formValidation && firstName.length === 0 ? "show" : ""}`}>Please fill input</span>
+          <input className="firstName"
+            placeholder="First name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+
+          <span className={`error ${formValidation && !firstName ? "show" : ""}`}>Please fill input</span>
         </div>
 
         <div>
-          <input className="lastName" placeholder="Last Name" onChange={lastNameChange}></input>
-          <span className={`error ${formValidation && lastName.length === 0 ? "show" : ""}`}>Please fill input</span>
+          <input className="lastName"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+
+          <span className={`error ${formValidation && !lastName ? "show" : ""}`}>Please fill input</span>
         </div>
 
         <div>
@@ -44,6 +48,6 @@ function App() {
         firstName={firstName} lastName={lastName}></Modal>
     </div>
   );
-}
+});
 
-export default App
+export default App;
