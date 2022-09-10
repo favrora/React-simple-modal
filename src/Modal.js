@@ -1,12 +1,12 @@
 
-function Modal() {
+function Modal({ modal, showModal }) {
   return (
-    <div className={`Modal ${this.props.modalShow ? "show" : ""}`}>
+    <div className={`Modal ${modal ? "show" : ""}`}>
 
       <div className="modal-content">
         <div className="closeContainer">
           <span className="close"
-            onClick={() => { this.props.modalShow(false)}}
+            onClick={() => { showModal(false)}}
           >
             X
           </span>

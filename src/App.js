@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState } from 'react'
 import './scss/App.scss';
 import Modal from './Modal';
 
 
 function App() {
-  const { modal, showModal } = useContext(Context);
+  const [modal, showModal] = useState(false);
 
   return (
     <div className="App">
@@ -20,11 +20,11 @@ function App() {
         </div>
 
         <div>
-          <button className="submitForm btn" variant="primary">Send</button>
+          <button className="submitForm btn" variant="primary" onClick={() => showModal(true)}>Send</button>
         </div>
       </div>
 
-      <Modal modalShow={modal}></Modal>
+      <Modal modal={modal} showModal={showModal}></Modal>
     </div>
   );
 }
